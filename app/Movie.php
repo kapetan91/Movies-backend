@@ -33,6 +33,7 @@ class Movie extends Model
 
 
     public static function search($name){
+    	
     	if($name == null){
     		return Movie::all();
     	}
