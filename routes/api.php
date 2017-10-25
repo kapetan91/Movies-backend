@@ -19,6 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware('api')->get('/movies', 'MoviesController@index');
 
+Route::middleware('api')->get('/movies/{searchTerm}', 'MoviesController@index');
+
 Route::middleware('api')->get('/movies/{id}', 'MoviesController@show');
 
 Route::middleware('api')->post('/movies','MoviesController@store');

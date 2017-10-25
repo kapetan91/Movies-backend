@@ -32,14 +32,13 @@ class Movie extends Model
 
 
 
-    public static function search($name){
-    	
-    	if($name == null){
-    		return Movie::all();
-    	}
-    	else {
-    		$movies = Movie::where('name', 'LIKE', '%' . $name . '%')->get();
-    		return $movies;
-    	}
+    public static function search($name = NULL, $take, $skip) {
+        if($name == NULL)
+        {
+            return self::skip($skip)->take($take);
+        } else {
+                $movies = Movie::where('name', 'LIKE', '%' . $name . '%')->skip($skip)->take($take);
+                return $movies;
+        }
     }
 }
