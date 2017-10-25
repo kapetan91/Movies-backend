@@ -14,6 +14,10 @@ class Movie extends Model
     // 	//return json_decode($this->genres);
     // }
 
+    public function setGenresAttribute($value) {
+      $this->attributes['genres'] = json_encode($value);
+    }
+
     protected $casts = [
     	'genres' => 'array',
     ];
@@ -25,4 +29,16 @@ class Movie extends Model
     	'duration' => 'required | min: 1 | max: 500',
     	'release_date' => 'required | unique'
     ];
+
+
+
+    public static function search($name){
+    	if($name == null){
+    		return Movie::all();
+    	}
+    	else {
+    		$movies = Movie::where('name', 'LIKE', '%' . $name . '%')->get();
+    		return $movies;
+    	}
+    }
 }
