@@ -13,16 +13,16 @@ class Movies extends Migration
      */
     public function up()
     {
-        Schema::create('movies', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-            $table->string('name');
-            $table->string('director');
-            $table->string('image_url');
-            $table->integer('duration');
-            $table->date('release_date');
-            $table->string('genres');
-        });
+        // Schema::create('movies', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->timestamps();
+        //     $table->string('name');
+        //     $table->string('director');
+        //     $table->string('image_url');
+        //     $table->integer('duration');
+        //     $table->date('release_date');
+        //     $table->string('genres');
+        // });
     }
 
     /**
